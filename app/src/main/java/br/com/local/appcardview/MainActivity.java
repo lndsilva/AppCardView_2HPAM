@@ -2,7 +2,9 @@ package br.com.local.appcardview;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -34,10 +36,10 @@ public class MainActivity extends AppCompatActivity {
                 flag = autenticarUsuario(txtUsuario.getText().toString(), txtPassword.getText().toString());
 
                 if (flag == true) {
-                    Toast.makeText(getApplicationContext(),
-                            "Bem vindo ao sistema...",
-                            Toast.LENGTH_SHORT).show();
+                    //Abrindo outra janela
+                    startActivity(new Intent(getApplicationContext(), MenuPrincipal_Activity.class));
                     limparJanela();
+                    finish();
                 } else {
                     Toast.makeText(getApplicationContext(),
                             "Usuário ou senha inválidos.",
